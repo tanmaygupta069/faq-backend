@@ -27,7 +27,7 @@ This project is a backend service for managing FAQs, built using Node.js, Expres
 ### Setup
 1. **Clone the repository**
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/tanmaygupta069/faq-backend
    cd faq-backend
    ```
 
@@ -40,7 +40,7 @@ This project is a backend service for managing FAQs, built using Node.js, Expres
    ```sh
    cp .env.example .env
    ```
-   Fill in the required environment variables in `.env`.
+   Fill in the required environment variables in `.env`.(**Refer from** `test.env`)
 
 4. **Start the database and Redis using Docker Compose**
    ```sh
@@ -62,11 +62,11 @@ This project is a backend service for managing FAQs, built using Node.js, Expres
 ### **FAQ Management**
 | Method | Endpoint        | Description              |
 |--------|---------------|--------------------------|
-| GET    | /faqs         | Get all FAQs            |
-| GET    | /faqs/:id     | Get FAQ by ID           |
-| POST   | /faqs         | Create a new FAQ        |
-| PUT    | /faqs/:id     | Update an existing FAQ  |
-| DELETE | /faqs/:id     | Delete an FAQ           |
+| GET    | /api/faqs     | Get all FAQs            |
+| POST   | /api/admin/faq| Create a new FAQ        |
+| GET    | /health       | Check health of server  |
+| GET    | /test         | Check status of server  |
+| DELETE | /faqs/?id     | Delete an FAQ by id     |
 
 ### **Cache Management**
 | Method | Endpoint        | Description              |
@@ -74,16 +74,7 @@ This project is a backend service for managing FAQs, built using Node.js, Expres
 | DELETE | /cache/flush  | Clear all cache         |
 
 ## Environment Variables
-The following environment variables should be configured in the `.env` file:
-
-```sh
-POSTGRES_USER=<your-db-user>
-POSTGRES_PASSWORD=<your-db-password>
-POSTGRES_DB=<your-db-name>
-REDIS_HOST=<your-redis-host>
-REDIS_PORT=<your-redis-port>
-PORT=3000
-```
+The  environment variables in the `test.env` file should be configured in your `.env` file
 
 ## Deployment
 To deploy using Docker:
@@ -91,7 +82,4 @@ To deploy using Docker:
 docker build -t faq-backend .
 docker run -p 3000:3000 --env-file .env faq-backend
 ```
-
-## License
-This project is licensed under the MIT License.
 
