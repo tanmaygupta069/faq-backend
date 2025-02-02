@@ -2,7 +2,7 @@ const express = require("express");
 const {
   getServerHealthInfoController,
   testApiController,
-} = require("../../../faq-backend/src/controllers");
+} = require("../controllers/index");
 const getFaqController = require("../controllers/getFaq.controller");
 // const v1 = require("./v1");
 const admin = require("./admin");

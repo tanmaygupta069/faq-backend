@@ -1,4 +1,4 @@
-const { getServerHealthInfo, testApiService } = require("../services");
+const { getServerHealthInfo, testApiService } = require("../services/index");
 
 const getServerHealthInfoController = (_, res) => {
   const result = getServerHealthInfo();

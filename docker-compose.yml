@@ -1,6 +1,23 @@
 version: '3.8'
 
 services:
+  backend:
+    build: .
+    container_name: faq-backend
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_HOST_LOCAL=postgres
+      - REDIS_HOST=redis
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    command: ["npm", "start"] # Adjust according to your start script
+
   postgres:
     image: postgres:15
     container_name: local_postgres
@@ -10,7 +27,7 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_DB: ${POSTGRES_NAME}
     ports:
       - "5432:5432"
 
