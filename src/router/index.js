@@ -5,7 +5,8 @@ const {
 } = require("../../../faq-backend/src/controllers");
 const getFaqController = require("../controllers/getFaq.controller");
 // const v1 = require("./v1");
-const admin = require("./admin")
+const admin = require("./admin");
+const flushCacheController = require("../controllers/flushCache.controller");
 
 const router = express.Router();
 
@@ -16,5 +17,7 @@ router.get("/test", testApiController);
 router.get("/api/faqs",getFaqController)
 
 router.use("/api/admin",admin);
+
+router.delete("/api/cache/flush",flushCacheController)
 
 module.exports = router;
