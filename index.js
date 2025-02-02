@@ -10,17 +10,6 @@ process.on("unhandledRejection", (err) => {
   console.log("unhandled rejection : ", err);
 });
 
-// (async () => {
-//   await sequelize
-//     .sync({force:true})
-//     .then(() => {
-//       console.log("Database & tables created!");
-//     })
-//     .catch((err) => {
-//       console.error("Unable to create tables:", err);
-//     });
-// })();
-
 app.listen(config.server.PORT, (err) => {
   if (err) {
     console.log(`problem running serve on port ${config.server.PORT}`);
