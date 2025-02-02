@@ -40,7 +40,7 @@ This project is a backend service for managing FAQs, built using Node.js, Expres
    ```sh
    cp .env.example .env
    ```
-   Fill in the required environment variables in `.env`.(**Refer from** `test.env`)
+   Fill in the required environment variables from `test.env` in `.env` file in your local environment.
 
 4. **Start the database and Redis using Docker Compose**
    ```sh
